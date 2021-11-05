@@ -1,0 +1,117 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://player-1/sprite-blue.png" type="Texture" id=1]
+[ext_resource path="res://player-2/sprite-red.png" type="Texture" id=2]
+[ext_resource path="res://images/soccer-ball.png" type="Texture" id=3]
+[ext_resource path="res://player-1/blue player.gd" type="Script" id=4]
+[ext_resource path="res://player-2/red player.gd" type="Script" id=5]
+[ext_resource path="res://images/soccer-field.png" type="Texture" id=6]
+[ext_resource path="res://pelota.gd" type="Script" id=7]
+[ext_resource path="res://sfx/large-stadium.mp3" type="AudioStream" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 31.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 15.9999
+
+[node name="soccer field" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -24, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 16, 944 )
+scale = Vector2( 1, 0.132415 )
+polygon = PoolVector2Array( 1280, -3806.21, 0, -3806.21, 0, -4470.78, 1280, -4470.78 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 1296, -120, 1296, -248, 16, -248, 16, -128 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -16, -56 )
+scale = Vector2( 2.125, 1.45474 )
+polygon = PoolVector2Array( -16, 0, 16, -120, 16, 344 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1256, -24 )
+scale = Vector2( 0.0312503, 1 )
+polygon = PoolVector2Array( 1296, -120, 1296, 352, 1392, 120 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = -4.0
+margin_right = 1282.0
+margin_bottom = 472.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="red player" type="KinematicBody2D" parent="."]
+position = Vector2( 8, 0 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="red player"]
+position = Vector2( 378.406, 219.013 )
+scale = Vector2( 0.862674, 0.780712 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red player"]
+position = Vector2( 376, 216 )
+shape = SubResource( 1 )
+
+[node name="blue player" type="KinematicBody2D" parent="."]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="blue player"]
+position = Vector2( 902.624, 219.781 )
+scale = Vector2( 0.810731, 0.797628 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blue player"]
+position = Vector2( 904, 224 )
+shape = SubResource( 2 )
+
+[node name="pelota" type="RigidBody2D" parent="."]
+position = Vector2( -32, 8 )
+mass = 0.281633
+can_sleep = false
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="pelota"]
+position = Vector2( 672, 224 )
+scale = Vector2( 0.316374, 0.30303 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pelota"]
+position = Vector2( 672, 224 )
+rotation = -8.37757
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 3.059
+pitch_scale = 1.04
+autoplay = true

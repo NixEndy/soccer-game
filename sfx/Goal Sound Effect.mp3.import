@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Goal Sound Effect.mp3-02bbe1fa35ed9602e1a5ea857fefb97f.mp3str"
+
+[deps]
+
+source_file="res://sfx/Goal Sound Effect.mp3"
+dest_files=[ "res://.import/Goal Sound Effect.mp3-02bbe1fa35ed9602e1a5ea857fefb97f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
