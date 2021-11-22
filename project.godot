@@ -91,6 +91,13 @@ up={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="campo"
+2d_physics/layer_2="ball"
+2d_physics/layer_3="playerRed"
+2d_physics/layer_4="playerBlue"
+
 [physics]
 
 common/enable_pause_aware_picking=true
