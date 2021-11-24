@@ -17,6 +17,7 @@ func _on_porteriaRojo_body_shape_entered(body_id, body, body_shape, local_shape)
 	if body.name == "pelota":
 		body.queue_free()
 		$gol.play()
+		get_tree().reload_current_scene()
 	
 	
 

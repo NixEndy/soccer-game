@@ -1,6 +1,5 @@
 extends Area2D
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,7 +15,7 @@ func _on_porteriaAzul_body_shape_entered(body_id, body, body_shape, local_shape)
 	if body.name == "pelota":
 		body.queue_free()
 		$gol.play()
-		
+		get_tree().reload_current_scene()
 		
 	
 		
