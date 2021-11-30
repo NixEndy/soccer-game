@@ -5,7 +5,6 @@ extends RigidBody2D
 func _ready():
 	gravity_scale = 0.0 # remove gravity force!
 	
-	
 func impulse(amount):
 	apply_central_impulse(amount)
 	angular_velocity = amount.lenght/10
@@ -18,4 +17,10 @@ func _integrate_forces(delta):
 func _on_pelota_body_entered(body):
 	print(body.name)	
 	$rebote.play()
+	
+func restart_pelota():
+	print("setting position")
+	position.x = 0
+	position.y = 0
+	
 
