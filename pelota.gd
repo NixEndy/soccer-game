@@ -1,9 +1,14 @@
 extends RigidBody2D
 
+var initialTransform
+var initialPosition
+
 
 
 func _ready():
 	gravity_scale = 0.0 # remove gravity force!
+	initialTransform = self.global_transform
+	initialPosition = self.global_position
 	
 func impulse(amount):
 	apply_central_impulse(amount)
@@ -20,7 +25,7 @@ func _on_pelota_body_entered(body):
 	
 func restart_pelota():
 	print("setting position")
-	position.x = 0
-	position.y = 0
+	
+	print("set position")
 	
 
